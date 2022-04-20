@@ -2,8 +2,8 @@ package com.eco.green.enuns;
 
 public enum Sex {
 		
-		MASCULINE("masculine"),
-		FEMININE("feminine"),
+		MEN("men"),
+		WOMEN("women"),
 		OTHER("other");
 		
 		private String Sex; 
