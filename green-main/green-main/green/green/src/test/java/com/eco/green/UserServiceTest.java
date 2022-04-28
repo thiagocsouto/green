@@ -32,7 +32,7 @@ class UserServiceTest {
 
 	@Test
       void testeParaVerficarCadastroDeFuncionariosEstaCorreto() {
-		User user = new User("Thiago", 1/4 , Sex.MAN, "THIAGO@OUTLOOK.COM", "I LIKED"); 
+		User user = new User("Thiago", 21 , Sex.MAN, "THIAGO@OUTLOOK.COM", "I LIKED"); 
 		User savedUser = userRepository.save(user); 	
 		
 		assertNotNull(savedUser);
