@@ -15,6 +15,11 @@ public class UserService {
 	private UserRepository userRepository;
 
 	public User salvarUser(@Valid User user) {
+		if (user.getAge() <= 0) 
+			throw new IllegalArgumentException("Idade errada");
+	
+		if (user.getEmail() == null) 
+			throw new Exception("Email não pode ser nulo");
 		return userRepository.save(user); 
 		
 	}
