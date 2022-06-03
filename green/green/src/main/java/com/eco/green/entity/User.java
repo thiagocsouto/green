@@ -36,7 +36,7 @@ public class User {
     
 	@Column(name="name")  
 	@Size(min=3, max=50, message="Name must contain at least 3 characters to continue.")
-	@Pattern(regexp = "^[A-Z][a-zA-ZáàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÒÖÚÇÑ ]*$", message="The first name must not start with a lowercase letter, number and cannot contain a special character. Just write the first name.")
+	@Pattern(regexp = "^[A-Z][a-zA-ZáàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÒÖÚÇÑ ]*$", message="The first name must not start with a lowercase letter, number and cannot contain a special character.")
 	private String name;   
 	
 	@Column(name= "age")
