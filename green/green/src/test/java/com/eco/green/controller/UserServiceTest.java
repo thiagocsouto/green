@@ -20,7 +20,7 @@ class UserServiceTest {
 	private UserService userService; 
 
 	@Test
-      void testeParaVerficarCadastroDeFuncionariosEstaCorreto() {
+        void testeParaVerficarCadastroDeFuncionariosEstaCorreto() {
 		User user = new User(); 
 		user.setName("Taison");
 		user.setAge(Integer.toString(33));
@@ -33,14 +33,14 @@ class UserServiceTest {
 	}
 
 
-	@Test
+	 @Test
 	 void testCadastrandoUsuarioComIdadeIgualOuMenorAZero() throws Exception {
         
 		assertThrows(Exception.class,
 				() -> userService.salvarUser(new User("Thiago", Integer.toString(0) , Sex.MAN, "THIAGO@OUTLOOK.COM", "I LIKED")));
 	}
 	
-     @Test 
+         @Test 
    	 void testToEmailExist() throws Exception {
           User user = new User();
           user.setName("Thiago");
