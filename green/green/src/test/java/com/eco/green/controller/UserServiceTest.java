@@ -21,7 +21,12 @@ class UserServiceTest {
 
 	@Test
       void testeParaVerficarCadastroDeFuncionariosEstaCorreto() {
-		User user = new User("Taison", Integer.toString(33) , Sex.MAN, "INTER@OUTLOOK.COM", "I LIKED GREEN"); 
+		User user = new User(); 
+		user.setName("Taison");
+		user.setAge(Integer.toString(33));
+		user.setSex(Sex.MAN);
+		user.setEmail("inter@outlook.com");
+		user.setSuggestion( "I am green");
 		User savedUser = userRepository.save(user); 	
 		
 		assertNotNull(savedUser);
@@ -37,10 +42,15 @@ class UserServiceTest {
 	
      @Test 
    	 void testToEmailExist() throws Exception {
-          User user = new User("Thiago", Integer.toString(22) , Sex.MAN, "thiagoantoniocs47@gmail.com", "I LIKED");
+          User user = new User();
+          user.setName("Thiago");
+  		  user.setAge(Integer.toString(33));
+  		  user.setSex(Sex.MAN);
+  		  user.setEmail("thiagoantoniocs47@gmail.com");
+  		  user.setSuggestion( "I love green");
           Exception exception = assertThrows(NegocioException.class, () -> userService.salvarUser(user));
       
-          	assertEquals("An exists for this email.", exception.getMessage());
+          assertEquals("An exists for this email.", exception.getMessage());
 
 	} 
 	
