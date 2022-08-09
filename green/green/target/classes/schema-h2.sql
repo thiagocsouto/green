@@ -1,1 +1,0 @@
-create table user_green(id integer auto_increment, name varchar(30), age varchar(3), sex varchar(30), email varchar(50), suggestion varchar(250));
