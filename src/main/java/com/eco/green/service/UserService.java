@@ -16,17 +16,13 @@ public class UserService {
 	private UserRepository userRepository;
 
 	
-	public User salvarUser(@Valid User user) throws Exception {		
+	public User salvedUser(@Valid User user) throws Exception {		
 		
 		User emailexist = userRepository.findByEmail(user.getEmail());
 		
 		if (emailexist != null) {
 			throw new NegocioException("An exists for this email.");
 		}
-		
-		
-		
-		
 		
 		return userRepository.save(user);
 		
