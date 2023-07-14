@@ -8,7 +8,7 @@ public class GreenApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GreenApplication.class, args);                   
-	} 
+	}   
  
 }  
     

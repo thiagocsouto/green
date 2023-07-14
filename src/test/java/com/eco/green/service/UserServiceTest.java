@@ -8,7 +8,6 @@ import com.eco.green.entity.User;
 import com.eco.green.enuns.Sex;
 import com.eco.green.exception.NegocioException;
 import com.eco.green.repository.UserRepository;
-import com.eco.green.service.UserService;
 
 @SpringBootTest
 class UserServiceTest { 
@@ -43,7 +42,7 @@ class UserServiceTest {
         
 		//asserts e action
 		assertThrows(Exception.class,
-				() -> userService.salvedUser(new User("Thiago", Integer.toString(0) , Sex.MAN, "THIAGO@OUTLOOK.COM", "I LIKED")));
+				() -> userService.salvedUser(new User(1, "Thiago", Integer.toString(0) , Sex.MAN, "THIAGO@OUTLOOK.COM", "I LIKED")));
 	}
 	
      @Test 

@@ -1,5 +1,9 @@
 package com.eco.green.enuns;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter @AllArgsConstructor
 public enum Sex {
 		
 		MAN("man"),
@@ -7,12 +11,5 @@ public enum Sex {
 		OTHER("other");
 		
 		private String Sex; 
-
-		private Sex(String sex) {
-			Sex = sex;   
-		}
-
-
-		
 
 }

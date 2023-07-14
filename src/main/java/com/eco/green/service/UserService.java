@@ -14,7 +14,6 @@ public class UserService {
 	
 	@Autowired
 	private UserRepository userRepository;
-
 	
 	public User salvedUser(@Valid User user) throws Exception {		
 		
@@ -25,7 +24,6 @@ public class UserService {
 		}
 		
 		return userRepository.save(user);
-		
 	}
 
 }
