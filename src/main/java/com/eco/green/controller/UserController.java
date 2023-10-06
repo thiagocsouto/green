@@ -38,7 +38,7 @@ public class UserController{
 				return mv;
 			} else { 
 				  try {					  
-					userService.salvarUser(user);
+					userService.salvedUser(user);
 					mv.setViewName("redirect:/home"); 
 					return mv;   
 				} 

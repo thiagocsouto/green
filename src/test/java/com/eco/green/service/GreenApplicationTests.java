@@ -1,4 +1,4 @@
-package com.eco.green.controller;
+package com.eco.green.service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

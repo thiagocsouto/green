@@ -14,9 +14,8 @@ public class UserService {
 	
 	@Autowired
 	private UserRepository userRepository;
-
 	
-	public User salvarUser(@Valid User user) throws Exception {		
+	public User salvedUser(@Valid User user) throws Exception {		
 		
 		User emailexist = userRepository.findByEmail(user.getEmail());
 		
@@ -24,12 +23,7 @@ public class UserService {
 			throw new NegocioException("An exists for this email.");
 		}
 		
-		
-		
-		
-		
 		return userRepository.save(user);
-		
 	}
 
 }
