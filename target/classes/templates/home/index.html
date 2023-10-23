@@ -210,7 +210,7 @@
 		<div class="container" id="inform-data">
 			<h2 class="title">Inform your data:</h2>
 			<!--FIRST_Nome -->
-			<form method="post" action="./home" th:object="${user}" class="form">
+			<form method="post" action="./home" th:object="${userDto}" class="form">
 				<div class="row">
 					<div class="col-md-6 form-group offset-md-3"
 						style="margin-top: 10px">
@@ -223,19 +223,6 @@
 						</div>
 					</div>
 				</div>
-<!-- 				LAST_NAME -->
-<!-- 				<div class="row"> -->
-<!-- 					<div class="col-md-6 form-group offset-md-3" -->
-<!-- 						style="margin-top: 10px"> -->
-<!-- 						<label><b>LAST NAME:</b></label> <input class="form-control" -->
-<!-- 							placeholder="your last name" style="margin-top: 10px" -->
-<!-- 							th:field="*{lastName}"> <br> -->
-<!-- 						<div class="alert alert-danger" role="alert" -->
-<!-- 							th:if="${#fields.hasErrors('lastName')}">  -->
-<!-- 							<label class="validation-message" th:errors="*{lastName}"></label> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
 				<!--AGE-->
 				<div class="row">
 					<div class="col-md-6 form-group offset-md-3"

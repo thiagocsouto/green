@@ -4,13 +4,13 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.validation.BindingResult;
 
-import com.eco.green.entity.User;
+import com.eco.green.dto.UserDto;
 import com.eco.green.exception.NegocioException;
 import com.eco.green.service.UserService;
 
@@ -22,34 +22,41 @@ public class UserController{
 	private UserService userService;
 	
 	@GetMapping("/home")
-	public ModelAndView home( User user) {
+	public ModelAndView home(@Valid UserDto userDto) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("home/index");
-		mv.addObject("user", new User()); 
+		mv.addObject("user", new UserDto(null, null, null, null, null, null)); 
 		return mv;  
 	}
 	 
-		@PostMapping("/home")
-		public ModelAndView Adicionar(@Valid User user, BindingResult com) throws Exception {
-			ModelAndView mv = new ModelAndView();
-			if(com.hasErrors()) {
-				mv.setViewName("home/index");
-				mv.addObject(user);
-				return mv;
-			} else { 
-				  try {					  
-					userService.salvedUser(user);
-					mv.setViewName("redirect:/home"); 
-					return mv;   
-				} 
-				  catch (NegocioException e) {	
-					    com.rejectValue("email", "error.user", e.getMessage());
-			            mv.setViewName("home/index");
-						mv.addObject(user);
-						return mv; 
-				} 
-		}
+	@PostMapping("/home")
+	public ModelAndView Adicionar(@Valid UserDto userDto, BindingResult br) throws Exception {
+	    ModelAndView mv = new ModelAndView();
+	    if(br.hasErrors()) {
+	        mv.setViewName("home/index");
+	        mv.addObject(userDto);
+	        return mv;
+	    } else {
+	        try {
+	            userService.salvedUser(userDto);
+	            mv.setViewName("redirect:/home");
+	            return mv;
+	        } catch (NegocioException e) {
+	            br.rejectValue("email", "error.user", e.getMessage());
+	            mv.setViewName("home/index");
+	            mv.addObject(userDto);
+	            return mv;
+	        }
+	    }
+	    
 	}
+
+
+
+
+
+
+
 		 
 		
 }
