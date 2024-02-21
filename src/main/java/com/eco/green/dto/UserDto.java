@@ -11,26 +11,26 @@ import javax.validation.constraints.Size;
 
 import com.eco.green.enuns.Sex;
 
+import lombok.Builder;
+
+@Builder
 public record UserDto(
 		
-		@Positive
+        @Positive
 		Integer id,
 
 		@Size(min=3, max=50, message="Name must contain at least 3 characters to continue.")
 		@Pattern(regexp = "^[a-zA-ZáàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÒÖÚÇÑ ]*$", message="The first name must not start with a lowercase letter, number and cannot contain a special character. Just write the first name.")
 		String name,   
 		
-		@NotNull(message="Required field, enter age to continue.")
 		@Min(value=13, message="Age should not be less than 12.")
 		@Max(value=100, message="Age should not be less than 100.")
 		@Pattern(regexp = "\\d+", message="Age invalid, enter only whole numbers.")
-		String age,
+		String age,      
 
-		@NotNull
 		Sex sex,
 		
 		@Email(message ="must be a well-formed email address.") 
-		@NotBlank(message ="Email must not be blank")
 		String email,
 
 		String suggestion
